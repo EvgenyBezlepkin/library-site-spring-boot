@@ -1,0 +1,64 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+
+.pmes{
+    font-size: 18px;
+}
+
+#h1mes {
+    font-weight: 700;
+    margin-bottom: 0.5em;
+
+}
+
+.boxmes {
+
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+    padding: 5px;
+    border: 2px solid #b78846;
+    margin: 20px;
+}
+.boxmes:before, .box:after {
+    content: "•";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
+    color: #b78846;
+    border: 2px solid #b78846;
+    line-height: 12px;
+    top: 5px;
+    text-align: center;
+}
+.boxmes:before {
+    left: 5px;
+}
+.boxmes:after {
+    right: 5px;
+}
+.boxmes .boxmes-inner {
+    position: relative;
+    border: 2px solid #b78846;
+    padding: 40px;
+}
+.boxmes .boxmes-inner:before, .boxmes .boxmes-inner:after {
+    content: "•";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
+    color: #b78846;
+    border: 2px solid #b78846;
+    line-height: 12px;
+    bottom: -2px;
+    text-align: center;
+}
+.boxmes .boxmes-inner:before {
+    left: -2px;
+}
+.boxmes .boxmes-inner:after {
+    right: -2px;
+}

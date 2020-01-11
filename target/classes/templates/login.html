@@ -1,0 +1,197 @@
+<?php require_once "php/connection.php"; ?>
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+          crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+            crossorigin="anonymous"></script>
+    <script th:src="@{/js/slider.js}" defer></script>
+    <script th:src="@{/js/modal-menu.js}" defer></script>
+
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+<header>
+
+    <section class="header-main">
+        <div class="banner-info">
+            <div class="container">
+                <div class="banner-address">
+                    <div class="col-md-5">
+                        <p>
+                            <i class="fa fa-map-marker" aria-hidden="true"></i> г. Новосибирск, ул. Николаева, 8</p>
+                    </div>
+                    <div class="col-md-3">
+                        <p>
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            mail@mail.com
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>
+                            <i class="fa fa-phone" aria-hidden="true"></i> +8 383 212456</p>
+                    </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+        <!--логотип и название-->
+        <div class="logo-title">
+            <div class=" col-md-2 logo-title-logo">
+                <a href="#">
+
+                </a>
+            </div>
+            <div class=" col-md-6 logo-title-title">
+                <a href="#" class="title-name">Le petite journal</a>
+            </div>
+            <div class="col-md-4 lg-search">
+                <div class="search">
+                    <input type="checkbox" id="trigger" class="search__checkbox" />
+                    <label class="search__label-init" for="trigger"></label>
+                    <label class="search__label-active" for="trigger"></label>
+                    <div class="search__border"></div>
+                    <input type="text" class="search__input" />
+                    <div class="search__close"></div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <!--навигация-->
+    <nav>
+        <ul class="topmenu">
+            <li>
+                <a href="/index.html" th:href="@{/index}">Главная</a>
+            </li>
+            <li>
+                <a href="/catalog.html" th:href="@{/catalog}">Каталог</a>
+            </li>
+            <li>
+                <a href="/newsitem.html" th:href="@{/newsitem}">Новинки</a>
+            </li>
+            <li>
+                <a href="/contacts.html" th:href="@{/contacts}">Контакты</a>
+            </li>
+            <li id="modalCont">
+                <a href ="/login.html" th:href="@{/login}">Войти</a>
+            </li>
+        </ul>
+    </nav>
+
+</header>
+
+<main>
+    <section class="conteiner-menu-mod">
+        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+        <div th:if="${param.error}">
+        Invalid username and password.
+    </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
+        <div class="container-menu">
+            <div class="message signup">
+                <div class="btn-wrapper">
+                    <button class="button" id="signup">Зарегистрироваться</button>
+                    <button class="button" id="login"> Войти</button>
+                    <form th:action="@{/logout}" method="post">
+                        <input class="button" type="submit" value="Выйти"/>
+                    </form>
+
+                </div>
+            </div>
+            <div class="form form--signup">
+                <div class="form--heading">Добро пожаловать! Зарегистрируйтесь</div>
+                <form autocomplete="off" th:action="@{/login}" method="POST" th:object="${userReg}">
+                    <input name="login" type="text" placeholder="Имя" value="" th:field="*{username}">
+                    <input name="password" type="password" placeholder="Пароль" value="" th:field="*{password}">
+                    <!--<input name="text" type="hidden" th:field=${4}">-->
+                    <button type="submit" value="signup" name="param">Зарегистрироваться</button>
+                </form>
+            </div>
+            <div class="form form--login">
+                <div class="form--heading">Добро пожаловать! Войдите  </div>
+
+                <form autocomplete="off" th:action="@{/login}" method="POST" th:object="${userLog}">
+                    <input name="username" type="text" placeholder="Имя">
+                    <input name="password" type="password" placeholder="Пароль">
+                    <button type="submit" value="signin" name="param">Логин</button>
+                </form>
+            </div>
+        </div>
+
+
+        <a href="/admin" th:href="@{/admin}" class="form--heading">Работа с базой данных</a>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer">
+        <div class="container">
+            <div class="agile-footer-grids">
+                <div class="col-md-4 agile-footer-grid ">
+                    <h4>Всякое разное</h4>
+                    <p>Pellentesque urna ex, ultricies a nunc at, pretium maximus nisi. Vestibulum non auctor diam.</p>
+                </div>
+                <div class="col-md-4 agile-footer-grid">
+                    <h4>Мы в соц. сетях</h4>
+                    <ul class="w3agile_footer_grid_list">
+                        <li>Выставка детских книг для детей от 7 до 10 лет
+                            <a href="#">http://example.com</a>
+                            <span>
+                                <br> Неделю назад</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 agile-footer-grid ">
+                    <h4>События</h4>
+                    <ul>
+                        <li>12th Aug
+                            <a href="#">Curabitur</a>
+                        </li>
+                        <li>10th Sept
+                            <a href="#">Fusce urna</a>
+                        </li>
+                        <li>24th Sept
+                            <a href="#">Praesent</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+</body>
+
+</html>

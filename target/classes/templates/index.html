@@ -1,0 +1,220 @@
+<?php require_once "php/connection.php"; ?>
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+          crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+            crossorigin="anonymous"></script>
+    <script src="js/slider.js" defer></script>
+    <script src="js/modal-menu.js" defer></script>
+
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+<header>
+
+    <section class="header-main">
+        <div class="banner-info">
+            <div class="container">
+                <div class="banner-address">
+                    <div class="col-md-5">
+                        <p>
+                            <i class="fa fa-map-marker" aria-hidden="true"></i> г. Новосибирск, ул. Николаева, 8</p>
+                    </div>
+                    <div class="col-md-3">
+                        <p>
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            mail@mail.com
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>
+                            <i class="fa fa-phone" aria-hidden="true"></i> +8 383 212456</p>
+                    </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+        <!--логотип и название-->
+        <div class="logo-title">
+            <div class=" col-md-2 logo-title-logo">
+                <a href="#">
+
+                </a>
+            </div>
+            <div class=" col-md-6 logo-title-title">
+                <a href="#" class="title-name">Le petite journal</a>
+            </div>
+            <div class="col-md-4 lg-search">
+                <div class="search">
+                    <input type="checkbox" id="trigger" class="search__checkbox" />
+                    <label class="search__label-init" for="trigger"></label>
+                    <label class="search__label-active" for="trigger"></label>
+                    <div class="search__border"></div>
+                    <input type="text" class="search__input" />
+                    <div class="search__close"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--навигация-->
+    <nav>
+        <ul class="topmenu">
+            <li>
+                <a href="/index.html" th:href="@{/index}">Главная</a>
+            </li>
+            <li>
+                <a href="/catalog.html" th:href="@{/catalog}">Каталог</a>
+            </li>
+            <li>
+                <a href="/newsitem.html" th:href="@{/newsitem}">Новинки</a>
+            </li>
+            <li>
+                <a href="/contacts.html" th:href="@{/contacts}">Контакты</a>
+            </li>
+            <li id="modalCont">
+                <a href ="/login.html" th:href="@{/login}">Войти</a>
+            </li>
+        </ul>
+    </nav>
+
+</header>
+
+<main>
+
+    <h3 class="heading">О Нас</h3>
+    <section class="about" id="about">
+        <div class="container">
+            <div class="col-md-5 about_left">
+
+            </div>
+            <div class="col-md-7 about_right">
+                <h3>Здравствуйте!</h3>
+                <h3>Присоединяйтесь к нам, чтобы читать хорошие книги</h3>
+                <p>Компания основана в 2005 году. Ассортимент насчитывает:<br>
+                    - 10 000 электронных книг на русском и иностранных языках<br>
+                    - 500 новых книг каждый месяц<br>
+
+                    Ежемесячная аудитория сервисов компании составляет 12,5 млн человек, которые скачивают более 1,5 млн книг в месяц.
+
+                    Компания разработала 25 приложений для чтения и прослушивания электронных книг, в т.ч. «ЛитРес: Читай!» и «ЛитРес: Слушай!» для мобильных платформ iOS, Android, Windows Phone 8, Windows 8 и Samsung Smart TV. </p>
+                <ul class="ul-buttons">
+                    <li>
+                        <a href="#" class="w3ls_more">Узнать больше</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/contacts}" class="w3l scroll">Написать нам</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- преимущества -->
+    <h3 class="heading">Наши особенности</h3>
+
+    <section class="services">
+        <div class="container">
+            <div class="services-row">
+                <div class="col-md-4 services-grids top">
+                    <i class="fa fa-database" aria-hidden="true"></i>
+                    <h4>Дoставка</h4>
+                    <p>Почтой - в любую точку страны. При заказе от 2000 р. доставка - за наш счет.</p>
+                </div>
+                <div class="col-md-4 services-grids top-1">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <h4>Заказ </h4>
+                    <p>Вы можете оформить заказ на книгу, которая закончилась или книгу, которой нет в магазине.</p>
+                </div>
+                <div class="col-md-4 services-grids top-2">
+                    <i class="fa fa-cubes" aria-hidden="true"></i>
+                    <h4>Подержанные книги</h4>
+                    <p>Мы продаем и покупаем старые книги в хорошем состоянии любого жанра и тематики.</p>
+                </div>
+                <div class="col-md-4 services-grids top-3">
+                    <i class="fa fa-book" aria-hidden="true"></i>
+                    <h4>Школьные учебники</h4>
+                    <p>Вы можете найти или заказать у нас большинство популярных школьных учебников.</p>
+                </div>
+                <div class="col-md-4 services-grids top-4">
+                    <i class="fa fa-link" aria-hidden="true"></i>
+                    <h4>Курьер по Новосибирску </h4>
+                    <p>При он-лайн заказе от 1500 р. наш курьер может привести книги к Вам домой в течение дня.</p>
+                </div>
+                <div class="col-md-4 services-grids top-5">
+                    <i class="fa fa-briefcase icon" aria-hidden="true"></i>
+                    <h4>Что-нибудь</h4>
+                    <p>To ensure the quality and effectiveness of every business activity, we support our every client by supporting
+                        them in all legislative issues.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+<footer>
+
+    <div class="footer">
+        <div class="container">
+            <div class="agile-footer-grids">
+                <div class="col-md-4 agile-footer-grid ">
+                    <h4>Всякое разное</h4>
+                    <p>Pellentesque urna ex, ultricies a nunc at, pretium maximus nisi. Vestibulum non auctor diam.</p>
+                </div>
+                <div class="col-md-4 agile-footer-grid">
+                    <h4>Мы в соц. сетях</h4>
+                    <ul class="w3agile_footer_grid_list">
+                        <li>Выставка детских книг для детей от 7 до 10 лет
+                            <a href="#">http://example.com</a>
+                            <span>
+                                <br> Неделю назад</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 agile-footer-grid ">
+                    <h4>События</h4>
+                    <ul>
+                        <li>12th Aug
+                            <a href="#">Curabitur</a>
+                        </li>
+                        <li>10th Sept
+                            <a href="#">Fusce urna</a>
+                        </li>
+                        <li>24th Sept
+                            <a href="#">Praesent</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+</body>
+
+</html>

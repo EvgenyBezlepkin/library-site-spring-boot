@@ -1,0 +1,200 @@
+<?php require_once "php/connection.php"; ?>
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+          crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+            crossorigin="anonymous"></script>
+    <script src="js/slider.js" defer></script>
+    <script src="js/modal-menu.js" defer></script>
+
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+<header>
+
+    <section class="header-main">
+        <div class="banner-info">
+            <div class="container">
+                <div class="banner-address">
+                    <div class="col-md-5">
+                        <p>
+                            <i class="fa fa-map-marker" aria-hidden="true"></i> г. Новосибирск, ул. Николаева, 8</p>
+                    </div>
+                    <div class="col-md-3">
+                        <p>
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            mail@mail.com
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>
+                            <i class="fa fa-phone" aria-hidden="true"></i> +8 383 212456</p>
+                    </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+        <!--логотип и название-->
+        <div class="logo-title">
+            <div class=" col-md-2 logo-title-logo">
+                <a href="#">
+
+                </a>
+            </div>
+            <div class=" col-md-6 logo-title-title">
+                <a href="#" class="title-name">Le petite journal</a>
+            </div>
+            <div class="col-md-4 lg-search">
+                <div class="search">
+                    <input type="checkbox" id="trigger" class="search__checkbox" />
+                    <label class="search__label-init" for="trigger"></label>
+                    <label class="search__label-active" for="trigger"></label>
+                    <div class="search__border"></div>
+                    <input type="text" class="search__input" />
+                    <div class="search__close"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--навигация-->
+    <nav>
+        <ul class="topmenu">
+            <li>
+                <a href="/index.html" th:href="@{/index}">Главная</a>
+            </li>
+            <li>
+                <a href="/catalog.html" th:href="@{/catalog}">Каталог</a>
+            </li>
+            <li>
+                <a href="/newsitem.html" th:href="@{/newsitem}">Новинки</a>
+            </li>
+            <li>
+                <a href="/contacts.html" th:href="@{/contacts}">Контакты</a>
+            </li>
+            <li id="modalCont">
+                <a href ="/login.html" th:href="@{/login}" >Войти</a>
+            </li>
+        </ul>
+    </nav>
+
+</header>
+
+<main>
+    <h3 class="heading">Ваше мнение о нас</h3>
+    <section class="contact" id="contact">
+        <div class="container">
+
+            <div class="contact-agileinfo">
+                <div class="col-md-7 contact-right">
+
+                    <form action="#" method="post">
+                        <input type="text" name="name" placeholder="Имя" required=""  >
+                        <input type="email" class="email" name="email" placeholder="Email" required="">
+                        <input type="text" name="phone" placeholder="Телефон" required="">
+                        <textarea name="message" placeholder="Сообщение или Ваш заказ" required=""></textarea>
+                        <input type="submit" value="Отправить" name="do_submit">
+                    </form>
+                    <form th:action="@{/send_message}" method="get">
+                        <input type="submit" value="Посмотреть сообщения">
+                    </form>
+                </div>
+                <div class="col-md-5 contact-left">
+                    <div class="address">
+                        <h3>Адрес:</h3>
+                        <p>
+                            <i class="glyphicon glyphicon-home"></i> ул. Николаева, 8 г. Новосибирск, 630090</p>
+                    </div>
+                    <div class="address address-mdl">
+                        <h3>Телефоны:</h3>
+                        <p>
+                            <i class="glyphicon glyphicon-earphone"></i> +8 383 12345673</p>
+                        <p>
+                            <i class="glyphicon glyphicon-phone"></i>+8 383 7654321</p>
+                    </div>
+                    <div class="address">
+                        <h3>Email:</h3>
+                        <p>
+                            <i class="glyphicon glyphicon-envelope"></i>
+                            <a href="mailto:mail@example.com">mail@example.com</a>
+                        </p>
+                        <p>
+                            <i class="glyphicon glyphicon-globe"></i>
+                            <a href="mailto:website@example.com">website@example.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="agileits-w3layouts-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4593.196732705793!2d83.10809372603114!3d54.8573035077954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x42dfc3f5b24bcecf%3A0xab64b0cb29de2b76!2z0YPQuy4g0J3QuNC60L7Qu9Cw0LXQstCwLCA4LCDQndC-0LLQvtGB0LjQsdC40YDRgdC6LCDQndC-0LLQvtGB0LjQsdC40YDRgdC60LDRjyDQvtCx0LsuLCA2MzAwOTA!5e0!3m2!1sru!2sru!4v1532974507121" allowfullscreen></iframe>
+    </section>
+</main>
+
+
+<footer>
+
+    <div class="footer">
+        <div class="container">
+            <div class="agile-footer-grids">
+                <div class="col-md-4 agile-footer-grid ">
+                    <h4>Всякое разное</h4>
+                    <p>Pellentesque urna ex, ultricies a nunc at, pretium maximus nisi. Vestibulum non auctor diam.</p>
+                </div>
+                <div class="col-md-4 agile-footer-grid">
+                    <h4>Мы в соц. сетях</h4>
+                    <ul class="w3agile_footer_grid_list">
+                        <li>Выставка детских книг для детей от 7 до 10 лет
+                            <a href="#">http://example.com</a>
+                            <span>
+                                <br> Неделю назад</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 agile-footer-grid ">
+                    <h4>События</h4>
+                    <ul>
+                        <li>12th Aug
+                            <a href="#">Curabitur</a>
+                        </li>
+                        <li>10th Sept
+                            <a href="#">Fusce urna</a>
+                        </li>
+                        <li>24th Sept
+                            <a href="#">Praesent</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+</body>
+
+</html>
